@@ -7,7 +7,7 @@ import { ItemsGrid } from "./components/ItemsGrid";
 function App() {
 	const [items, setItems] = useState([]);
 	const [cardsClicked, setCardsClicked] = useState([]);
-
+	const [gameResult, setGameResult] = useState(null);
 	useEffect(() => {
 		// since i'm not using an external api, i'm simulating it
 		getItems().then((items) => setItems(items));
@@ -19,13 +19,23 @@ function App() {
 
 	function handleCardClick(id) {
 		if (cardsClicked.includes(id)) {
-			setCardsClicked([]);
+			setGameResult("lose");
+		} else if (cardsClicked.length === 2 /*items.length - 1*/) {
+			setGameResult("win");
 		} else {
 			setCardsClicked([...cardsClicked, id]);
+			shuffleItems();
 		}
-		shuffleItems();
 	}
-	return <ItemsGrid items={items} onCardClick={handleCardClick}></ItemsGrid>;
+	return (
+		<>
+			<ItemsGrid
+				items={items}
+				onCardClick={gameResult ? () => {} : handleCardClick}
+			></ItemsGrid>
+			;{gameResult && <h3 style={{ color: "white" }}>{gameResult}</h3>}
+		</>
+	);
 }
 
 export default App;
