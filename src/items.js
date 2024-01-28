@@ -13,8 +13,9 @@ import netherStar from "./assets/nether_star.gif";
 import pigstep from "./assets/pigstep.png";
 import string from "./assets/string.png";
 import waterBucket from "./assets/water_bucket.png";
+import { shuffle } from "./utilities";
 
-export const items = [
+const items = [
 	{ id: 0, name: "blazeRod", title: "Blaze Rod", image: blazeRod },
 	{ id: 1, name: "book", title: "Book", image: book },
 	{ id: 2, name: "bread", title: "Bread", image: bread },
@@ -31,3 +32,7 @@ export const items = [
 	{ id: 13, name: "string", title: "String", image: string },
 	{ id: 14, name: "waterBucket", title: "Water bucket", image: waterBucket },
 ];
+
+export async function getItems() {
+	return await shuffle(items).slice(0, 12);
+}
