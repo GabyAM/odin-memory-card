@@ -1,4 +1,10 @@
 .items-grid {
+	background-image: url("../assets/inventory_background.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+	min-width: 150px;
+	max-width: 800px;
+	padding: 2.5em;
 }
