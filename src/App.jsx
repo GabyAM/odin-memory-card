@@ -11,5 +11,11 @@ function App() {
 		getItems().then((items) => setItems(items));
 	}, []);
 
+	return (
+		<ItemsGrid
+			items={items}
+		></ItemsGrid>
+	);
+}
 
 export default App;
