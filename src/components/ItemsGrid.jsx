@@ -1,8 +1,6 @@
 import { ItemCard } from "./ItemCard";
 import "../styles/itemsgrid.css";
-export function ItemsGrid({
-	items,
-}) {
+export function ItemsGrid({ items, onCardClick }) {
 	return (
 		<>
 			<div className="items-grid">
@@ -11,6 +9,7 @@ export function ItemsGrid({
 						<ItemCard
 							key={item.id}
 							data={item}
+							onClick={() => onCardClick(item.id)}
 						></ItemCard>
 					);
 				})}
