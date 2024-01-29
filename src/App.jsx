@@ -40,9 +40,11 @@ function App() {
 		}
 	}
 	function resetGame() {
-		shuffleItems();
-		setCardsClicked([]);
-		setGameResult(null);
+		getItems().then((items) => {
+			setItems(items);
+			setCardsClicked([]);
+			setGameResult(null);
+		});
 	}
 
 	return (
