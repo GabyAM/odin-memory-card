@@ -6,3 +6,16 @@ body {
 	display: flex;
 	justify-content: center;
 }
+
+.main-button {
+	background-image: url("./assets/button_background.png");
+	border: 3px solid;
+	border-color: #aaa #565656 #565656 #aaa;
+	outline: 2px solid #000;
+	color: white;
+}
+.main-button:hover {
+	background-image: url("./assets/button_hover_background.png");
+	border-color: #bdc6ff #59639a #59639a #bdc6ff;
+	color: #fefcbf;
+}

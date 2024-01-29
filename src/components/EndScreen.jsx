@@ -1,3 +1,6 @@
+import "../styles/endscreen.css";
+import { playSound } from "../audio";
+
 export function EndScreen({ result, score, onReset }) {
 	return (
 		<div className={`end-screen ${result}`}>
