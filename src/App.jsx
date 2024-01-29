@@ -46,10 +46,17 @@ function App() {
 
 	return (
 		<>
-				<ItemsGrid
-					items={items}
-					onCardClick={gameResult ? () => {} : handleCardClick}
-				></ItemsGrid>
+			<ItemsGrid
+				items={items}
+				onCardClick={gameResult ? () => {} : handleCardClick}
+			></ItemsGrid>
+			{gameResult ? (
+				<EndScreen
+					result={gameResult}
+					score={cardsClicked.length}
+					onReset={resetGame}
+				></EndScreen>
+			) : (
 				<div className="scores">
 					<span>
 						Score:{" "}
@@ -59,12 +66,6 @@ function App() {
 						Best score: <span className="score">{bestScore}</span>
 					</span>
 				</div>
-			{gameResult && (
-				<EndScreen
-					result={gameResult}
-					score={cardsClicked.length}
-					onReset={resetGame}
-				></EndScreen>
 			)}
 		</>
 	);
