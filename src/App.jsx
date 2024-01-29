@@ -3,6 +3,7 @@ import "./App.css";
 import { getItems } from "./items";
 import { shuffle } from "./utilities";
 import { ItemsGrid } from "./components/ItemsGrid";
+import { EndScreen } from "./components/EndScreen";
 
 function App() {
 	const [items, setItems] = useState([]);
@@ -27,13 +28,24 @@ function App() {
 			shuffleItems();
 		}
 	}
+	function resetGame() {
+		setCardsClicked([]);
+		setGameResult(null);
+	}
+
 	return (
 		<>
 			<ItemsGrid
 				items={items}
 				onCardClick={gameResult ? () => {} : handleCardClick}
 			></ItemsGrid>
-			;{gameResult && <h3 style={{ color: "white" }}>{gameResult}</h3>}
+			{gameResult && (
+				<EndScreen
+					result={gameResult}
+					score={cardsClicked.length}
+					onReset={resetGame}
+				></EndScreen>
+			)}
 		</>
 	);
 }
