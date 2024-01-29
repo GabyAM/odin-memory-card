@@ -30,7 +30,7 @@ function App() {
 	function handleCardClick(id) {
 		if (cardsClicked.includes(id)) {
 			setGameResult("defeat");
-		} else if (cardsClicked.length === 2 /*items.length - 1*/) {
+		} else if (cardsClicked.length === items.length - 1) {
 			setCardsClicked([...cardsClicked, id]);
 			setGameResult("victory");
 		} else {
@@ -40,6 +40,7 @@ function App() {
 		}
 	}
 	function resetGame() {
+		shuffleItems();
 		setCardsClicked([]);
 		setGameResult(null);
 	}
