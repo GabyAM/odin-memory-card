@@ -2,8 +2,6 @@
 	width: 100%;
 	height: 100%;
 	position: absolute;
-	color: white;
-	text-shadow: 2px 2px black;
 }
 .end-screen.victory {
 	background-color: rgba(0, 255, 0, 0.1);
@@ -22,10 +20,10 @@
 	justify-content: center;
 	gap: 40px;
 }
-
-.end-screen .score {
-	color: #f7f654;
+.content * {
+	text-shadow: 2px 2px black;
 }
+
 .end-screen button {
 	width: 100%;
 	height: 35px;
