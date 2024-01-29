@@ -3,15 +3,15 @@ const baseUrl =
 
 const sounds = {
 	button: {
-		audio: new Audio(baseUrl + "/button_sound.mp3"),
+		audio: new Audio(baseUrl + "button_sound.mp3"),
 		startOffset: 0.15,
 	},
 	defeat: {
-		audio: new Audio(baseUrl + "/defeat_sound.mp3"),
+		audio: new Audio(baseUrl + "defeat_sound.mp3"),
 		startOffset: 0.6,
 	},
 	victory: {
-		audio: new Audio(baseUrl + "/victory_sound.mp3"),
+		audio: new Audio(baseUrl + "victory_sound.mp3"),
 		startOffset: 0,
 	},
 };
