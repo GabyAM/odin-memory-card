@@ -10,10 +10,18 @@ function App() {
 	const [items, setItems] = useState([]);
 	const [cardsClicked, setCardsClicked] = useState([]);
 	const [gameResult, setGameResult] = useState(null);
+	const [bestScore, setBestScore] = useState(0);
+
 	useEffect(() => {
 		// since i'm not using an external api, i'm simulating it
 		getItems().then((items) => setItems(items));
 	}, []);
+
+	useEffect(() => {
+		if (cardsClicked.length > bestScore) {
+			setBestScore(cardsClicked.length);
+		}
+	}, [cardsClicked, bestScore]);
 
 	function shuffleItems() {
 		setItems(shuffle(items));
@@ -23,6 +31,7 @@ function App() {
 		if (cardsClicked.includes(id)) {
 			setGameResult("defeat");
 		} else if (cardsClicked.length === 2 /*items.length - 1*/) {
+			setCardsClicked([...cardsClicked, id]);
 			setGameResult("victory");
 		} else {
 			playSound("button");
@@ -37,10 +46,19 @@ function App() {
 
 	return (
 		<>
-			<ItemsGrid
-				items={items}
-				onCardClick={gameResult ? () => {} : handleCardClick}
-			></ItemsGrid>
+				<ItemsGrid
+					items={items}
+					onCardClick={gameResult ? () => {} : handleCardClick}
+				></ItemsGrid>
+				<div className="scores">
+					<span>
+						Score:{" "}
+						<span className="score">{cardsClicked.length}</span>
+					</span>
+					<span>
+						Best score: <span className="score">{bestScore}</span>
+					</span>
+				</div>
 			{gameResult && (
 				<EndScreen
 					result={gameResult}
