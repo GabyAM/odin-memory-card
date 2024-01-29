@@ -3,6 +3,7 @@ import "./App.css";
 import { getItems } from "./items";
 import { shuffle } from "./utilities";
 import { ItemsGrid } from "./components/ItemsGrid";
+import { playSound } from "./audio";
 import { EndScreen } from "./components/EndScreen";
 
 function App() {
@@ -20,10 +21,11 @@ function App() {
 
 	function handleCardClick(id) {
 		if (cardsClicked.includes(id)) {
-			setGameResult("lose");
+			setGameResult("defeat");
 		} else if (cardsClicked.length === 2 /*items.length - 1*/) {
-			setGameResult("win");
+			setGameResult("victory");
 		} else {
+			playSound("button");
 			setCardsClicked([...cardsClicked, id]);
 			shuffleItems();
 		}

@@ -2,6 +2,7 @@ import "../styles/endscreen.css";
 import { playSound } from "../audio";
 
 export function EndScreen({ result, score, onReset }) {
+	playSound(result);
 	return (
 		<div className={`end-screen ${result}`}>
 			<div className="content">
@@ -12,6 +13,10 @@ export function EndScreen({ result, score, onReset }) {
 					</span>
 				)}
 				<button
+					className="main-button"
+					onClick={() => {
+						playSound("button");
+						onReset();
 					}}
 				>
 					Restart
