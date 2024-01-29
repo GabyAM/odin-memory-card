@@ -1,0 +1,15 @@
+.tooltip {
+	color: white;
+	background-image: url("../assets/tooltip_background.png");
+	background-size: 100% 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	height: 30px;
+	font-size: 20px;
+	padding: 0 20px 5px 10px;
+	text-shadow: 2px 2px #4c4c4c;
+	display: flex;
+	align-items: center;
+}

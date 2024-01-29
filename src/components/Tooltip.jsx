@@ -1,3 +1,5 @@
+import "../styles/tooltip.css";
+
 export function Tooltip({ translate, text }) {
 	return (
 		<div
